@@ -1,6 +1,6 @@
-import React, { Component,ReactDOM } from "react";
+import React, { Component } from "react";
 import Header from "./Header";
-import "./App.css";
+import "./ShowSubscribers.css";
 
 
 // let subscribers = [
@@ -16,21 +16,17 @@ import "./App.css";
     //   }
     // ]
 
-class App extends Component {
+class ShowSubscribers extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      subscribersListToShow: []
-    }
-  }
+ 
 
-  clickHandler(message) {
-    alert(message);
-  }
+
+
+
+  
   
   render() {
-    
+
     return (
 
       <div className="component-container">
@@ -47,12 +43,12 @@ class App extends Component {
           
 
           {
-            this.state.subscribersListToShow.map(sub =>  {
+            this.props.subscriberList.map(sub =>  {
               return <div key={sub.id} className="grid-container">
                 <span className="grid-item ">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
                 <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn" onClick={this.clickHandler.bind(this, "Delete Handler Clicked")}>DELETE</button>
+                  <button className="custom-btn delete-btn" >DELETE</button>
                 </span>
               </div>
             })
@@ -65,4 +61,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscribers;
